@@ -1,0 +1,7 @@
+{% for item in item_list %}
+
+<ul>
+    <a href="/food/{{item.id}}"><li>{{ item.item_name }} {{ item.price }}</li></a>
+</ul>
+
+{% endfor %}
