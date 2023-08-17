@@ -1,7 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% extends "food/base.html" %}
+
+<body>
+{% block body %}
+
+
 {% for item in item_list %}
 
-<ul>
-    <a href="/food/{{item.id}}"><li>{{ item.item_name }} {{ item.price }}</li></a>
-</ul>
+
+
+<br>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-6">
+        <img src="{{ item.item_image }}"  class="img-fluid" height="150px">
+      </div>
+      
+      <div class="col-xl-6 col-lg-6 col-md-6">
+        <h3>{{ item.item_name }}</h3>
+        <h3>{{ item.item_description }}</h3>
+        <h3>{{ item.price }}</h3>
+        <a href="{% url 'food:detail' item.id %}" class="btn btn-success">Details</a>
+      </div>
+
+    </div>
+  </div>
 
 {% endfor %}
+
+
+{% endblock %}
+</body>
+</html>
+
+
